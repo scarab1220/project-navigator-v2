@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional TPM Landing Page Design System
+   Navy & Gold palette - Executive, trustworthy, clean */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Core brand colors - Navy & Gold */
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    /* Primary: Deep Navy */
+    --primary: 220 60% 20%;
+    --primary-foreground: 210 40% 98%;
+    
+    /* Secondary: Warm Stone */
+    --secondary: 30 15% 95%;
+    --secondary-foreground: 222 47% 11%;
+    
+    /* Muted: Soft gray */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    
+    /* Accent: Gold */
+    --accent: 38 70% 50%;
+    --accent-foreground: 222 47% 11%;
+    
+    /* Gold variant for highlights */
+    --gold: 38 70% 50%;
+    --gold-light: 40 65% 65%;
+    --gold-dark: 35 75% 40%;
+    
+    /* Navy variants */
+    --navy: 220 60% 20%;
+    --navy-light: 218 45% 35%;
+    --navy-dark: 222 65% 12%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 38 70% 50%;
+    
+    --radius: 0.5rem;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(220 60% 20% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(220 60% 20% / 0.1), 0 2px 4px -2px hsl(220 60% 20% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(220 60% 20% / 0.1), 0 4px 6px -4px hsl(220 60% 20% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(220 60% 20% / 0.1), 0 8px 10px -6px hsl(220 60% 20% / 0.1);
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 210 40% 98%;
+    
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 38 70% 50%;
+    --primary-foreground: 222 47% 11%;
+    
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    
+    --accent: 38 70% 50%;
+    --accent-foreground: 222 47% 11%;
+    
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 38 70% 50%;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 50%, hsl(var(--gold)) 100%);
+  }
+  
+  .bg-gradient-navy {
+    background: linear-gradient(135deg, hsl(var(--navy-dark)) 0%, hsl(var(--navy)) 50%, hsl(var(--navy-light)) 100%);
+  }
+  
+  .bg-gradient-hero {
+    background: linear-gradient(180deg, hsl(var(--navy-dark)) 0%, hsl(var(--navy)) 100%);
+  }
+  
+  .section-padding {
+    @apply px-6 py-16 md:px-8 md:py-24 lg:px-12;
+  }
+  
+  .container-narrow {
+    @apply max-w-5xl mx-auto;
+  }
+  
+  .card-professional {
+    @apply bg-card rounded-lg border border-border p-6 transition-all duration-300;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .card-professional:hover {
+    box-shadow: var(--shadow-lg);
+    @apply border-accent/30;
+  }
+  
+  .gold-underline {
+    @apply relative inline-block;
+  }
+  
+  .gold-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-accent;
+  }
+  
+  .btn-primary-hero {
+    @apply inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-md transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--gold-dark)) 0%, hsl(var(--gold)) 100%);
+    color: hsl(var(--navy-dark));
+    box-shadow: 0 4px 14px 0 hsl(var(--gold) / 0.4);
+  }
+  
+  .btn-primary-hero:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px 0 hsl(var(--gold) / 0.5);
+  }
+  
+  .btn-secondary-hero {
+    @apply inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-md transition-all duration-300 border-2;
+    border-color: hsl(var(--gold) / 0.6);
+    color: hsl(var(--gold-light));
+    background: transparent;
+  }
+  
+  .btn-secondary-hero:hover {
+    background: hsl(var(--gold) / 0.1);
+    border-color: hsl(var(--gold));
+  }
+  
+  .metric-number {
+    font-family: 'Playfair Display', Georgia, serif;
+    @apply text-4xl md:text-5xl font-bold;
+    color: hsl(var(--gold));
+  }
+  
+  .skill-tag {
+    @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-medium transition-colors;
+    background: hsl(var(--navy) / 0.08);
+    color: hsl(var(--navy));
+  }
+  
+  .skill-tag:hover {
+    background: hsl(var(--gold) / 0.15);
+    color: hsl(var(--gold-dark));
+  }
+  
+  .link-professional {
+    @apply inline-flex items-center gap-2 font-medium transition-colors;
+    color: hsl(var(--navy));
+  }
+  
+  .link-professional:hover {
+    color: hsl(var(--gold-dark));
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
