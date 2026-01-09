@@ -2,66 +2,92 @@ import { Mail, MapPin, Globe, ArrowRight } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="bg-gradient-hero section-padding relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }} />
+    <section
+      id="contact"
+      className="relative overflow-hidden bg-gradient-hero section-padding"
+    >
+      {/* Subtle background pattern */}
+      <div aria-hidden className="absolute inset-0 opacity-5">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)",
+            backgroundSize: "40px 40px",
+          }}
+        />
       </div>
-      
+
       <div className="container-narrow relative z-10">
-        <div className="text-center max-w-2xl mx-auto">
-          <span className="text-gold font-medium text-sm uppercase tracking-wider mb-2 block">
-            Let's Work Together
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-gold">
+            Let’s Work Together
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+
+          <h2 className="mb-4 text-3xl font-bold text-primary-foreground md:text-4xl">
             Ready to Discuss Your Project?
           </h2>
-          <p className="text-lg text-primary-foreground/80 mb-8">
-            Whether you need end-to-end project leadership or strategic consulting, 
-            I'm here to help you deliver with confidence.
+
+          <p className="mb-8 text-lg text-primary-foreground/80">
+            Whether you need end-to-end project leadership or strategic
+            consulting, I’m here to help you deliver with confidence.
           </p>
-          
-          {/* CTA */}
-          <a 
+
+          {/* CTA (same effect as Hero "Contact Me") */}
+          <a
             href="mailto:oscarnoeabarca@outlook.com"
-            className="btn-primary-hero mb-12"
+            className="group relative mb-12 inline-flex items-center justify-center rounded-xl px-6 py-3
+            bg-gold text-navy font-semibold shadow-lg
+            transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
           >
-            <Mail className="w-5 h-5 mr-2" />
+            {/* Shimmer sweep */}
+            <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-xl">
+              <span className="absolute -left-1/2 top-0 h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 transition-all duration-700 group-hover:left-[120%] group-hover:opacity-100" />
+            </span>
+
+            <Mail className="mr-2 h-5 w-5" />
             Get in Touch
-            <ArrowRight className="w-4 h-4 ml-2" />
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
-          
-          {/* Contact details */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-primary-foreground/70">
+
+          {/* Contact info */}
+          <div className="flex flex-col items-center justify-center gap-6 text-primary-foreground/70 sm:flex-row">
             <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-gold" />
+              <Mail className="h-4 w-4 text-gold" />
               <span className="text-sm">oscarnoeabarca@outlook.com</span>
             </div>
-            <div className="hidden sm:block w-1 h-1 rounded-full bg-gold/50" />
+
+            <span className="hidden h-1 w-1 rounded-full bg-gold/50 sm:block" />
+
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-gold" />
+              <MapPin className="h-4 w-4 text-gold" />
               <span className="text-sm">San Salvador, El Salvador</span>
             </div>
-            <div className="hidden sm:block w-1 h-1 rounded-full bg-gold/50" />
+
+            <span className="hidden h-1 w-1 rounded-full bg-gold/50 sm:block" />
+
             <div className="flex items-center gap-2">
-              <Globe className="w-4 h-4 text-gold" />
+              <Globe className="h-4 w-4 text-gold" />
               <span className="text-sm">USA / LATAM / Remote</span>
             </div>
           </div>
-          
-          {/* Spanish note */}
-          <p className="text-sm text-gold-light/80 mt-8 italic">
-            ¿Prefiere comunicarse en español? No hay problema — hablo ambos idiomas con fluidez.
+
+          <p className="mt-8 text-sm italic text-gold-light/80">
+            ¿Prefiere comunicarse en español? No hay problema — hablo ambos
+            idiomas con fluidez.
           </p>
         </div>
       </div>
-      
-      {/* Decorative elements */}
-      <div className="absolute left-0 top-1/3 w-64 h-64 rounded-full bg-gold/5 blur-3xl" />
-      <div className="absolute right-1/4 top-0 w-96 h-96 rounded-full bg-navy-light/10 blur-3xl" />
+
+      {/* Decorative glows */}
+      <div
+        aria-hidden
+        className="absolute left-0 top-1/3 h-64 w-64 rounded-full bg-gold/5 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="absolute right-1/4 top-0 h-96 w-96 rounded-full bg-navy-light/10 blur-3xl"
+      />
     </section>
   );
 };
