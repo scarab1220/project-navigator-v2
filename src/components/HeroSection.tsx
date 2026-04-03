@@ -62,7 +62,7 @@ const HeroSection = () => {
           {/* Subheading */}
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-4 max-w-2xl leading-relaxed">
             Delivering complex projects on time with Agile execution and KPI-driven delivery.
-            10+ years leading cross-functional teams across the Americas.
+            5+ years leading cross-functional teams across the Americas.
           </p>
 
           {/* Spanish tagline */}

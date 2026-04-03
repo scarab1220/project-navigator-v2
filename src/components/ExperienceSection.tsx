@@ -20,7 +20,7 @@ const metrics = [
     icon: Globe,
   },
   {
-    number: "100+",
+    number: "50+",
     label: "Team Members Led",
     sublabel: "Miembros de Equipo",
     icon: Users,

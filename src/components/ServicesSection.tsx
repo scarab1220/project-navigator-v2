@@ -124,7 +124,7 @@ const ServicesSection = () => {
               "Project-Based Delivery",
               "Agile Sprint Leadership",
               "Consulting & Advisory",
-              "Part-Time PM Support",
+              "Project Management Support",
             ].map((option, index) => (
               <span
                 key={index}
