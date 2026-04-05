@@ -6,6 +6,7 @@ import {
   Workflow,
   Shield,
 } from "lucide-react";
+import { Reveal } from "./Reveal";
 
 const services = [
   {
@@ -67,49 +68,56 @@ const ServicesSection = () => {
 
       <div className="container-narrow relative">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <span className="text-accent font-medium text-sm uppercase tracking-wider mb-2 block">
-            What I Offer
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Services & Engagement Options
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Flexible engagement models tailored to your project needs — from
-            short-term consulting to long-term project leadership.
-          </p>
-        </div>
+        <Reveal>
+          <div className="text-center mb-16">
+            <span className="text-accent font-medium text-sm uppercase tracking-wider mb-2 block animate-fade-slide-up">
+              What I Offer
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 animate-slide-in-left" style={{animationDelay: '100ms'}}>
+              <span className="inline-block">Services &</span>{" "}
+              <span className="relative inline-block text-gradient-gold">
+                Engagement Options
+              </span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-slide-up" style={{animationDelay: '200ms'}}>
+              Flexible engagement models tailored to your project needs — from
+              short-term consulting to long-term project leadership.
+            </p>
+          </div>
+        </Reveal>
 
         {/* Services grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="group relative rounded-2xl border border-border/50 bg-background/70 backdrop-blur-sm p-6 shadow-sm
-              transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-            >
-              {/* Elegant glow (no neon) */}
-              <span className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span className="absolute -inset-px rounded-2xl bg-gradient-to-r from-transparent via-foreground/6 to-transparent blur-sm" />
-              </span>
-
+            <Reveal key={`service-${index}`} delay={index * 0.1}>
               <div
-                className="relative inline-flex items-center justify-center w-12 h-12 rounded-xl bg-accent/10 text-accent mb-4
-              transition-all duration-300 group-hover:bg-accent/18 group-hover:scale-105"
+                className="group relative rounded-2xl border border-border/50 bg-background/70 backdrop-blur-sm p-6 shadow-sm
+                transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-accent/40 animate-scale-in"
+                style={{animationDelay: `${index * 100}ms`}}
               >
-                <service.icon className="w-6 h-6" />
-              </div>
+                {/* Elegant glow (no neon) */}
+                <span className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  <span className="absolute -inset-px rounded-2xl bg-gradient-to-r from-transparent via-accent/20 to-transparent blur-sm" />
+                </span>
 
-              <h3 className="relative text-lg font-semibold text-foreground mb-1">
-                {service.title}
-              </h3>
-              <p className="relative text-sm text-accent font-medium mb-3 italic">
-                {service.titleEs}
-              </p>
-              <p className="relative text-muted-foreground text-sm leading-relaxed">
-                {service.description}
-              </p>
-            </div>
+                <div
+                  className="relative inline-flex items-center justify-center w-12 h-12 rounded-xl bg-accent/10 text-accent mb-4
+                transition-all duration-300 group-hover:bg-accent/20 group-hover:scale-110 group-hover:animate-float"
+                >
+                  <service.icon className="w-6 h-6" />
+                </div>
+
+                <h3 className="relative text-lg font-semibold text-foreground mb-1">
+                  {service.title}
+                </h3>
+                <p className="relative text-sm text-accent font-medium mb-3 italic">
+                  {service.titleEs}
+                </p>
+                <p className="relative text-muted-foreground text-sm leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            </Reveal>
           ))}
         </div>
 

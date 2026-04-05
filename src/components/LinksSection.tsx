@@ -1,4 +1,5 @@
 import { Linkedin, Github, ExternalLink } from "lucide-react";
+import { Reveal } from "./Reveal";
 
 const LinksSection = () => {
   return (
@@ -10,31 +11,37 @@ const LinksSection = () => {
       </div>
 
       <div className="container-narrow relative">
-        <div className="text-center mb-12">
-          <span className="text-accent font-medium text-sm uppercase tracking-wider mb-2 block">
-            Connect
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Professional Profiles
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            View my professional background and explore examples of my technical understanding
-            and team collaboration.
-          </p>
-        </div>
+        <Reveal>
+          <div className="text-center mb-12">
+            <span className="text-accent font-medium text-sm uppercase tracking-wider mb-2 block animate-fade-slide-up">
+              Connect
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 animate-slide-in-left" style={{animationDelay: '100ms'}}>
+              <span className="inline-block">Professional</span>{" "}
+              <span className="relative inline-block text-gradient-gold">
+                Profiles
+              </span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-xl mx-auto animate-fade-slide-up" style={{animationDelay: '200ms'}}>
+              View my professional background and explore examples of my technical understanding
+              and team collaboration.
+            </p>
+          </div>
+        </Reveal>
 
         <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
           {/* LinkedIn */}
-          <a
-            href="https://www.linkedin.com/in/oscar-abarca-a1ba4a88/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative overflow-hidden rounded-2xl border border-border/60 bg-background p-5
-            flex items-center gap-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-          >
+          <Reveal delay={0.3}>
+            <a
+              href="https://www.linkedin.com/in/oscar-abarca-a1ba4a88/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden rounded-2xl border border-border/60 bg-background p-5
+              flex items-center gap-4 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-blue-400/40 animate-scale-in"
+            >
             {/* Elegant glow */}
-            <span className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <span className="absolute -inset-px rounded-2xl bg-gradient-to-r from-transparent via-[#0A66C2]/18 to-transparent blur-sm" />
+            <span className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+              <span className="absolute -inset-px rounded-2xl bg-gradient-to-r from-transparent via-[#0A66C2]/25 to-transparent blur-sm" />
             </span>
 
             {/* Subtle shimmer sweep */}
@@ -56,18 +63,20 @@ const LinksSection = () => {
               </p>
             </div>
           </a>
+          </Reveal>
 
           {/* GitHub */}
-          <a
-            href="https://github.com/scarab1220"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative overflow-hidden rounded-2xl border border-border/60 bg-background p-5
-            flex items-center gap-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-          >
+          <Reveal delay={0.4}>
+            <a
+              href="https://github.com/scarab1220"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden rounded-2xl border border-border/60 bg-background p-5
+              flex items-center gap-4 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-gray-600/40 animate-scale-in"
+            >
             {/* Elegant glow */}
-            <span className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <span className="absolute -inset-px rounded-2xl bg-gradient-to-r from-transparent via-[#24292F]/10 to-transparent blur-sm" />
+            <span className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+              <span className="absolute -inset-px rounded-2xl bg-gradient-to-r from-transparent via-[#24292F]/15 to-transparent blur-sm" />
             </span>
 
             {/* Subtle shimmer sweep */}
@@ -89,6 +98,7 @@ const LinksSection = () => {
               </p>
             </div>
           </a>
+          </Reveal>
         </div>
 
         {/* Trust note */}

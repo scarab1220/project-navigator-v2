@@ -1,4 +1,5 @@
 import { TrendingUp, Globe, Users, Award } from "lucide-react";
+import { Reveal } from "./Reveal";
 
 const metrics = [
   {
@@ -39,44 +40,51 @@ const ExperienceSection = () => {
 
       <div className="container-narrow relative">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Proven Track Record
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Executive-level reporting and stakeholder management across global organizations.
-            Trusted by leadership teams to deliver high-stakes projects.
-          </p>
-        </div>
+        <Reveal>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 animate-slide-in-left">
+              <span className="inline-block">Proven</span>{" "}
+              <span className="relative inline-block text-gradient-gold">
+                Track Record
+              </span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-slide-up" style={{animationDelay: '100ms'}}>
+              Executive-level reporting and stakeholder management across global organizations.
+              Trusted by leadership teams to deliver high-stakes projects.
+            </p>
+          </div>
+        </Reveal>
 
         {/* Metrics grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-16">
           {metrics.map((metric, index) => (
-            <div
-              key={index}
-              className="group relative rounded-2xl border border-border/50 bg-background/70 backdrop-blur-sm p-6 text-center
-              transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-            >
-              {/* Elegant glow */}
-              <span className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span className="absolute -inset-px rounded-2xl bg-gradient-to-r from-transparent via-foreground/6 to-transparent blur-sm" />
-              </span>
+            <Reveal key={`metric-${index}`} delay={index * 0.1}>
+              <div
+                className="group relative rounded-2xl border border-border/50 bg-background/70 backdrop-blur-sm p-6 text-center
+                transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-accent/40 animate-bounce-in"
+                style={{animationDelay: `${index * 100}ms`}}
+              >
+                {/* Elegant glow */}
+                <span className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  <span className="absolute -inset-px rounded-2xl bg-gradient-to-r from-transparent via-accent/20 to-transparent blur-sm" />
+                </span>
 
-              <div className="relative inline-flex items-center justify-center w-12 h-12 rounded-full bg-accent/10 text-accent mb-4
-              transition-all duration-300 group-hover:bg-accent/20 group-hover:scale-105">
-                <metric.icon className="w-6 h-6" />
-              </div>
+                <div className="relative inline-flex items-center justify-center w-12 h-12 rounded-full bg-accent/10 text-accent mb-4
+                transition-all duration-300 group-hover:bg-accent/25 group-hover:scale-110 group-hover:animate-float">
+                  <metric.icon className="w-6 h-6" />
+                </div>
 
-              <div className="relative metric-number mb-2">
-                {metric.number}
+                <div className="relative metric-number mb-2 animate-fade-slide-up">
+                  {metric.number}
+                </div>
+                <div className="relative text-sm font-medium text-foreground">
+                  {metric.label}
+                </div>
+                <div className="relative text-xs text-muted-foreground italic mt-1">
+                  {metric.sublabel}
+                </div>
               </div>
-              <div className="relative text-sm font-medium text-foreground">
-                {metric.label}
-              </div>
-              <div className="relative text-xs text-muted-foreground italic mt-1">
-                {metric.sublabel}
-              </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 

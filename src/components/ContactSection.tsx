@@ -1,4 +1,5 @@
 import { Mail, MapPin, Globe, ArrowRight } from "lucide-react";
+import { Reveal } from "./Reveal";
 
 const ContactSection = () => {
   return (
@@ -19,16 +20,20 @@ const ContactSection = () => {
       </div>
 
       <div className="container-narrow relative z-10">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-gold">
-            Let’s Work Together
-          </span>
+        <Reveal>
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-gold animate-fade-slide-up">
+              Let's Work Together
+            </span>
 
-          <h2 className="mb-4 text-3xl font-bold text-primary-foreground md:text-4xl">
-            Ready to Discuss Your Project?
-          </h2>
+            <h2 className="mb-4 text-3xl font-bold text-primary-foreground md:text-4xl animate-slide-in-left" style={{animationDelay: '100ms'}}>
+              <span className="inline-block">Ready to Discuss</span>{" "}
+              <span className="relative inline-block text-gradient-gold">
+                Your Project?
+              </span>
+            </h2>
 
-          <p className="mb-8 text-lg text-primary-foreground/80">
+            <p className="mb-8 text-lg text-primary-foreground/80 animate-fade-slide-up" style={{animationDelay: '200ms'}}>
             Whether you need end-to-end project leadership or strategic
             consulting, I’m here to help you deliver with confidence.
           </p>
@@ -37,8 +42,9 @@ const ContactSection = () => {
           <a
             href="mailto:oscarnoeabarca@outlook.com"
             className="group relative mb-12 inline-flex items-center justify-center rounded-xl px-6 py-3
-            bg-gold text-navy font-semibold shadow-lg
-            transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+              bg-gold text-navy font-semibold shadow-lg animate-bounce-in
+              transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
+              style={{animationDelay: '300ms'}}
           >
             {/* Shimmer sweep */}
             <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-xl">
@@ -51,7 +57,7 @@ const ContactSection = () => {
           </a>
 
           {/* Contact info */}
-          <div className="flex flex-col items-center justify-center gap-6 text-primary-foreground/70 sm:flex-row">
+            <div className="flex flex-col items-center justify-center gap-6 text-primary-foreground/70 sm:flex-row animate-fade-slide-up" style={{animationDelay: '400ms'}}>
             <div className="flex items-center gap-2">
               <Mail className="h-4 w-4 text-gold" />
               <span className="text-sm">oscarnoeabarca@outlook.com</span>
@@ -72,11 +78,12 @@ const ContactSection = () => {
             </div>
           </div>
 
-          <p className="mt-8 text-sm italic text-gold-light/80">
-            ¿Prefiere comunicarse en español? No hay problema — hablo ambos
-            idiomas con fluidez.
-          </p>
-        </div>
+            <p className="mt-8 text-sm italic text-gold-light/80 animate-fade-slide-up" style={{animationDelay: '500ms'}}>
+              ¿Prefiere comunicarse en español? No hay problema — hablo ambos
+              idiomas con fluidez.
+            </p>
+          </div>
+        </Reveal>
       </div>
 
       {/* Decorative glows */}

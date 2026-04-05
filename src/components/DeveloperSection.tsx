@@ -179,48 +179,56 @@ const categoryInfo = [
   },
 ];
 
+import { Reveal } from "./Reveal";
+
 const DeveloperSection = () => {
   return (
     <section className="section-padding bg-muted/30">
       <div className="container-narrow">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <span className="text-accent font-medium text-sm uppercase tracking-wider mb-2 block">
-            Technical Background
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Developer Expertise
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Beyond project management, I bring hands-on development experience that enables me to
-            communicate effectively with engineering teams and understand technical complexities.
-          </p>
-        </div>
+        <Reveal>
+          <div className="text-center mb-16">
+            <span className="text-accent font-medium text-sm uppercase tracking-wider mb-2 block animate-fade-slide-up">
+              Technical Background
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 animate-slide-in-left" style={{animationDelay: '100ms'}}>
+              <span className="inline-block">Developer</span>{" "}
+              <span className="relative inline-block text-gradient-gold">
+                Expertise
+              </span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-slide-up" style={{animationDelay: '200ms'}}>
+              Beyond project management, I bring hands-on development experience that enables me to
+              communicate effectively with engineering teams and understand technical complexities.
+            </p>
+          </div>
+        </Reveal>
 
         {/* Technologies grid */}
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 mb-12">
           {technologies.map((tech, index) => (
-            <div
-              key={index}
-              className="group relative flex flex-col items-center p-4 rounded-2xl border border-border/50 bg-background/60 backdrop-blur-sm
-              transition-all duration-300
-              hover:-translate-y-1 hover:border-foreground/15 hover:shadow-lg"
-            >
-              {/* Elegant glow overlay */}
-              <span className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span className="absolute -inset-px rounded-2xl bg-gradient-to-r from-transparent via-foreground/10 to-transparent blur-sm" />
-              </span>
+            <Reveal key={`tech-${index}`} delay={index * 0.05}>
+              <div
+                className="group relative flex flex-col items-center p-4 rounded-2xl border border-border/50 bg-background/60 backdrop-blur-sm
+                transition-all duration-500 hover:-translate-y-2 hover:border-accent/40 hover:shadow-2xl animate-scale-in"
+                style={{animationDelay: `${index * 50}ms`}}
+              >
+                {/* Elegant glow overlay */}
+                <span className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  <span className="absolute -inset-px rounded-2xl bg-gradient-to-r from-transparent via-accent/20 to-transparent blur-sm" />
+                </span>
 
-              <div className="mb-3 group-hover:scale-110 transition-transform duration-300">
-                {tech.icon}
+                <div className="mb-3 group-hover:scale-125 transition-transform duration-300 group-hover:animate-float">
+                  {tech.icon}
+                </div>
+                <span className="text-sm font-medium text-foreground text-center">
+                  {tech.name}
+                </span>
+                <span className="text-xs text-muted-foreground mt-1">
+                  {tech.category}
+                </span>
               </div>
-              <span className="text-sm font-medium text-foreground text-center">
-                {tech.name}
-              </span>
-              <span className="text-xs text-muted-foreground mt-1">
-                {tech.category}
-              </span>
-            </div>
+            </Reveal>
           ))}
         </div>
 
@@ -231,28 +239,29 @@ const DeveloperSection = () => {
             const count = technologies.filter((t) => t.category === category.name).length;
 
             return (
-              <div
-                key={index}
-                className="group relative flex items-center gap-3 p-4 rounded-2xl border border-border/50 bg-background/60 backdrop-blur-sm
-                transition-all duration-300
-                hover:-translate-y-0.5 hover:border-foreground/15 hover:shadow-md"
-              >
-                {/* Elegant glow overlay */}
-                <span className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <span className="absolute -inset-px rounded-2xl bg-gradient-to-r from-transparent via-foreground/8 to-transparent blur-sm" />
-                </span>
+              <Reveal key={`cat-${index}`} delay={index * 0.1}>
+                <div
+                  className="group relative flex items-center gap-3 p-4 rounded-2xl border border-border/50 bg-background/60 backdrop-blur-sm
+                  transition-all duration-500 hover:-translate-y-1.5 hover:border-accent/40 hover:shadow-xl hover:bg-background/80 animate-fade-slide-up"
+                  style={{animationDelay: `${index * 100}ms`}}
+                >
+                  {/* Elegant glow overlay */}
+                  <span className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    <span className="absolute -inset-px rounded-2xl bg-gradient-to-r from-transparent via-accent/15 to-transparent blur-sm" />
+                  </span>
 
-                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-                  <Icon className="w-5 h-5 text-accent" />
-                </div>
+                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-accent/20 group-hover:animate-float">
+                    <Icon className="w-5 h-5 text-accent" />
+                  </div>
 
-                <div>
-                  <p className="font-medium text-foreground">{category.name}</p>
-                  <p className="text-xs text-muted-foreground">
-                    {count} {count === 1 ? "technology" : "technologies"}
-                  </p>
+                  <div>
+                    <p className="font-medium text-foreground">{category.name}</p>
+                    <p className="text-xs text-muted-foreground">
+                      {count} {count === 1 ? "technology" : "technologies"}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>
